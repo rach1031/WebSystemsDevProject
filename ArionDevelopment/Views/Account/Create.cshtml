@@ -1,0 +1,56 @@
+﻿@model RegisterModel
+@{
+    ViewBag.Title = "Create User Account";
+    Layout = "_Layout";
+}
+<div asp-validation-summary="All" class="text-danger"></div>
+<form method="post" asp-action="Create" asp-antiforgery="true" class="form-horizontal" autocomplete="off">
+
+    <div class="form-group col-md-5">
+        <label class="control-label" asp-for="FirstName">First Name:</label>
+        <input class="form-control" asp-for="FirstName" />
+    </div>
+
+    <div class="form-group col-md-5">
+        <label class="control-label" asp-for="LastName">Last Name:</label>
+        <input class="form-control" asp-for="LastName" />
+    </div>
+
+    <div class="form-group col-md-5">
+        <label class="control-label" asp-for="Email">Email:</label>
+        <input class="form-control" asp-for="Email" />
+    </div>
+    <div class="form-group col-md-5">
+        <label class="control-label" asp-for="Password">Password:</label>
+        <input class="form-control" asp-for="Password" type="password" />
+    </div>
+
+
+    <div class="form-group col-md-5">
+        <label class="control-label" asp-for="ConfirmPassword">Confirm Password:</label>
+        <input class="form-control" asp-for="ConfirmPassword" type="password" />
+    </div>
+
+    <div class="form-group col-md-5">
+        <label class="control-label" asp-for="PhoneNumber">Phone Number:</label>
+        <input class="form-control" asp-for="PhoneNumber" />
+    </div>
+
+
+    <div class="form-group col-md-5">
+        <label class="control-label" asp-for="Zip">Zip:</label>
+        <input class="form-control" asp-for="Zip" />
+    </div>
+
+
+
+
+
+    <div class="form-group col-md-5">
+        <div class="col-sm-offset-2">
+            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="reset" class="btn btn-primary">Reset</button>
+            <a asp-controller ="Home" asp-action="Index" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>

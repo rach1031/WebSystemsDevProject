@@ -1,0 +1,66 @@
+﻿@model Order
+
+<h2>Check out now</h2>
+<p>Please choose to pick-up from Arion store location or enter your shipping information to have your vehicle shipped. </p>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Checkout" method="post" autocomplete="off">
+    @*
+        <h3>Options</h3>
+        <div class="checkbox">
+            <label>
+                <input asp-for="Pickup" /> I will pick up from Arion
+            </label>
+        </div>
+    *@
+    <h3>Ship to</h3>
+    <div class="form-group">
+        <label>Name:</label><input asp-for="Name" class="form-control" />
+    </div>
+    <h3>Address</h3>
+    <div class="form-group">
+        <label>Line 1:</label><input asp-for="Line1" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Line 2:</label><input asp-for="Line2" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>City:</label><input asp-for="City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>State:</label><input asp-for="State" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Zip:</label><input asp-for="Zip" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label>Country:</label><input asp-for="Country" class="form-control" />
+    </div>
+
+    <h3>Payment</h3>
+
+    <div class="form-group">
+        <label>Credit Card Number:</label><input asp-for="CreditCard" class="form-control" />
+    </div>
+
+
+    <div class="form-group">
+        <label>Expiration Month:</label>
+        <input asp-for="ExpireMonth" class="form-control card-expiry-month" placeholder='MM' size='2' type='text' />
+    </div>
+
+    <div class="form-group">
+        <label>Expiraton Year:</label><input asp-for="ExpireYear" class="form-control" placeholder='YYYY' size="4" />
+    </div>
+
+    <div class="form-group">
+        <label class='control-label'>CVC</label>
+        <input asp-for="CVC" autocomplete='off' class='form-control card-cvc' placeholder='ex. 311' size='4' type='text'>
+    </div>
+
+
+    <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Complete Order" />
+    </div>
+</form>

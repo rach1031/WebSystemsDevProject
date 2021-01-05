@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" asp-href-include="lib/bootstrap/dist/css/*.min.css" />
+    <link rel="stylesheet" asp-href-include="lib/font-awesome/css/*.css" />
+    <script type="text/javascript" src="~/lib/jquery/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+    <title>ARION</title>
+</head>
+<body>
+
+    @*  part of this code was obtained from https://getbootstrap.com/docs/4.0/components/navbar/  *@
+
+    <nav class="navbar navbar-expand-lg navbar-inverse bg-info justify-content-between">
+        <a class="navbar-brand text-white" href="/Home/Index">ARION</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link active text-white" href="/Home/Index">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link text-white" href="/Home/About">About</a>
+                <a class="nav-item nav-link text-white" href="/Product/List">Search Vehicles</a>
+                <a class="nav-item nav-link text-white" href="/Calc/Index">Loan Calculator</a>
+            </div>
+        </div>
+        
+            <div class="navbar-nav">
+                <a class="nav-item nav-link text-white" href="/Account/Create">Register</a>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form id="logout" action="@Url.Action("Logout", "Account")" method="POST">
+                        <a class="nav-item nav-link text-white" href="javascript: $('#logout').submit()">
+                            Logout
+                            <br /><span>@User.Identity.Name</span>
+                        </a>
+                    </form>
+                }
+                else
+                {
+                    <a class="nav-item nav-link text-white" href="@Url.Action("Login", "Account")" title="log in">
+                        Login
+                    </a>
+                }
+            </div>
+         
+           
+            <div class="float-right">
+                @await Component.InvokeAsync("CartSummary")
+            </div>
+
+</nav>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+</body>
+

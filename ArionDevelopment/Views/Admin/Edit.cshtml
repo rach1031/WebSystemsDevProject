@@ -1,0 +1,80 @@
+﻿@model Product
+@{
+    ViewBag.Title = "Edit Product";
+    Layout = "_AdminLayout";
+}
+    <form asp-action="Edit" method="post">
+        <input type="hidden" asp-for="ProductID" />
+        <div class="form-group">
+            <label asp-for="Make"></label>
+            <div><span asp-validation-for="Make" class="text-danger"></span></div>
+            <input asp-for="Make" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Model"></label>
+            <div><span asp-validation-for="Model" class="text-danger"></span></div>
+            <input asp-for="Model" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Year"></label>
+            <div><span asp-validation-for="Year" class="text-danger"></span></div>
+            <input asp-for="Year" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Color"></label>
+            <div><span asp-validation-for="Color" class="text-danger"></span></div>
+            <input asp-for="Color" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="BodyType"></label>
+            <div><span asp-validation-for="BodyType" class="text-danger"></span></div>
+            <input asp-for="BodyType" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Mileage"></label>
+            <div><span asp-validation-for="Mileage" class="text-danger"></span></div>
+            <input asp-for="Mileage" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="NumberOfSeats"></label>
+            <div><span asp-validation-for="NumberOfSeats" class="text-danger"></span></div>
+            <input asp-for="NumberOfSeats" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CityMPG"></label>
+            <div><span asp-validation-for="CityMPG" class="text-danger"></span></div>
+            <input asp-for="CityMPG" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="HighwayMPG"></label>
+            <div><span asp-validation-for="HighwayMPG" class="text-danger"></span></div>
+            <input asp-for="HighwayMPG" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Location"></label>
+            <div><span asp-validation-for="Location" class="text-danger"></span></div>
+            <input asp-for="Location" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="DailyRate"></label>
+            <div><span asp-validation-for="DailyRate" class="text-danger"></span></div>
+            <input asp-for="DailyRate" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <div><span asp-validation-for="Price" class="text-danger"></span></div>
+            <input asp-for="Price" class="form-control" />
+        </div>
+        @*   //Will add photo upload option at a later time. //
+        <div class="custom-file">
+            <label asp-for="Picture"></label>
+            <input asp-for="Picture" class="custom-file-input" id="customFile">
+            <label class="custom-file-label" for="customFile">Choose file</label>
+        </div>
+        *@
+        <br />
+        <div class="text-center">
+            <button class="btn btn-primary" type="submit">Save</button>
+            <a asp-action="Index" class="btn btn-default">Cancel</a>
+        </div>
+    </form>

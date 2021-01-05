@@ -1,0 +1,36 @@
+﻿@model Calc
+
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+<form asp-action="Index" method="post" autocomplete="off">
+
+    <h3>Enter the following information to receive an estimated monthly loan payment</h3>
+
+
+    <div class="form-group col-md-3">
+        <label>Cost of Car:</label><input asp-for="CarCost" class="form-control" />
+    </div>
+
+
+    <div class="form-group col-md-3">
+        <label>Loan Term in Months:</label><input asp-for="LoanTerm" class="form-control" />
+    </div>
+
+    <div class="form-group col-md-3">
+        <label>Downpayment:</label><input asp-for="DownPayment" class="form-control" />
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label>Annual Interest Rate(Enter without %. Ex. 3% enter as 3): </label><input asp-for="AnnualIntRate" class="form-control" />
+    </div>
+
+    <div class="text-center col-md-3">
+        <input class="btn btn-primary" type="submit" value="Calculate" />
+    </div>
+
+</form>
+
+<h3>Estimated monthly payment:</h3>
+   $ @Html.DisplayFor(m => m.MonthlyPayment)
+
+

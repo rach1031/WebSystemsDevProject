@@ -1,0 +1,95 @@
+﻿@model IEnumerable<string>
+
+
+
+
+
+<br />
+
+
+<div class="row">
+    <div class="col-md-6 select-outline">
+
+        <select class="mdb-select md-form md-outline colorful-select dropdown-primary" onChange="window.location.href = 'List?make='+$(this).val()+'&page=1'">
+            <option value="0" selected>Choose Make</option>
+            @foreach (string make in Model)
+            {
+                <option asp-action="List"
+                        asp-route-make="@make"
+                        asp-controller="Product"
+                        asp-route-page="1">
+                    @make
+
+                </option>
+
+            }
+        </select>
+
+    </div>
+</div>
+
+
+
+<br />
+
+@* Creating a second dropdown
+<div class="row">
+    <div class="col-md-6 select-outline">
+
+        <select class="mdb-select md-form md-outline colorful-select dropdown-primary" onChange="window.location.href = 'List?model='+$(this).val()+'&page=1'">
+            <option value="0" selected>Choose Model</option>
+            @foreach (string model in Model)
+            {
+                <option asp-action="List"
+                        asp-route-bodytype="@"
+                        asp-controller="Product"
+                        asp-route-page="1">
+                    @bodyType
+
+                </option>
+
+            }
+        </select>
+
+    </div>
+</div>
+    *@
+
+@*
+
+
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Make
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            @foreach (string make in Model)
+            {
+
+                <a class="dropdown-item"
+                   asp-action="List"
+                   asp-route-make="@make"
+                   asp-controller="Product"
+                   asp-route-page="1">
+                    @make
+                </a>
+            }
+        </div>
+    </div>
+
+
+
+
+    <br />
+
+    <div>
+        <button class="btn btn-outline-info btn-block m-1"
+                asp-action="List"
+                asp-controller="Product"
+                asp-route-make="">
+            Clear Filters
+        </button>
+    </div>
+
+
+*@
